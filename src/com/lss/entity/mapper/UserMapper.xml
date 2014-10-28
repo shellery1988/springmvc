@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.lss.dao.IUserDao">
+	<resultMap type="UserEntity" id="userMapper">
+		<id property="id" column="id"/>
+		<id property="loginid" column="loginid" />
+		<id property="username" column="username" />
+		<id property="password" column="password"/>
+		<id property="age" column="age"/>
+		<id property="sex" column="sex"/>
+		<id property="qq" column="qq"/>
+		<id property="email" column="email"/>
+	</resultMap>
+	
+	<select id="queryAll" resultType="UserEntity" resultMap="userMapper">
+		SELECT * FROM user 
+	</select>
+	
+	<select id="queryById" resultType="UserEntity" resultMap="userMapper" parameterType="int">
+		SELECT * FROM user WHERE id = #{id}
+	</select>
+</mapper>

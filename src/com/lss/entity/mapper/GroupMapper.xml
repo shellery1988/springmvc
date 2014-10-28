@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.lss.dao.IGroupDao">
+	<resultMap type="GroupEntity" id="groupMapper">
+		<id property="id" column="id"/>
+		<id property="name" column="name" />
+		<id property="code" column="code" />
+		<id property="parid" column="parid"/>
+		<id property="mark" column="mark"/>
+	</resultMap>
+	
+	<select id="queryAll" resultType="UserEntity" resultMap="groupMapper">
+		SELECT * FROM group 
+	</select>
+	
+	<select id="queryById" resultType="UserEntity" resultMap="groupMapper" parameterType="int">
+		SELECT * FROM group WHERE id = #{id}
+	</select>
+</mapper>
